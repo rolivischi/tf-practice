@@ -29,10 +29,10 @@ variable "provider_id" {
 }
 
 provider "google" {
-  project     = var.project_id
-  region      = "europe-west1"
-  identity_pool_id = var.identity_pool_id  # This should be the full path, like [PROJECT_ID].svc.id.goog
-  provider         = var.provider_id  # This should be the full path, like [PROJECT_ID].svc.id.goog/[WORKLOAD_IDENTITY_POOL]/[WORKLOAD_PROVIDER_ID]
+  project          = var.project_id
+  region           = "europe-west1"
+  identity_pool_id = var.identity_pool_id # This should be the full path, like [PROJECT_ID].svc.id.goog
+  provider         = var.provider_id      # This should be the full path, like [PROJECT_ID].svc.id.goog/[WORKLOAD_IDENTITY_POOL]/[WORKLOAD_PROVIDER_ID]
   access_token     = data.external.token.result["access_token"]
 }
 
