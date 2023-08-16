@@ -19,9 +19,11 @@ variable "project_id" {
 }
 
 provider "google" {
-  credentials = var.gcp_storage_account
   project     = var.project_id
   region      = "europe-west1"
+  identity_pool_id = "terraform"
+  provider = "oidc"
+  access_token     = data.external.token.result["access_token"]
 }
 
 provider "github" {
