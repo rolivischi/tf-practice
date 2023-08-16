@@ -1,5 +1,5 @@
 resource "github_repository" "example" {
-  name        = "my-new-repo"
+  name        = "tf-example-created-repo"
   description = "This is my new repository created with Terraform"
-  private     = true
+  visibility     = "private"
 }

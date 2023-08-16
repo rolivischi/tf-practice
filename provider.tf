@@ -10,7 +10,7 @@ variable "github_token" {
 
 provider "github" {
   token        = var.github_token
-  organization = "example-org-bd71e1"
+  owner = "senacor3"
 }
 
 provider "tfe" {
