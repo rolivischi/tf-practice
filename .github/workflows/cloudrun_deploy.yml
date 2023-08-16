@@ -25,8 +25,8 @@ jobs:
         gcloud auth configure-docker
 
         # Build and push the image to Google Container Registry
-        docker pull hello-world:latest
-        docker tag hello-world:latest gcr.io/red-delight-393913/hello-world
+        docker pull hashicorp/http-echo:latest
+        docker tag hashicorp/http-echo:latest gcr.io/red-delight-393913/hello-world
         docker push gcr.io/red-delight-393913/hello-world
 
         # Deploy the image to Cloud Run
