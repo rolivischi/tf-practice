@@ -10,7 +10,7 @@ variable "github_token" {
 
 provider "github" {
   token        = var.github_token
-  owner = "senacor3"
+  owner =   "senacor3"
 }
 
 provider "tfe" {
