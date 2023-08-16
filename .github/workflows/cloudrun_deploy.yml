@@ -13,21 +13,14 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - id: auth
-      name: Authenticate to Google Cloud
+    # Authenticate with Google Cloud
+    - name: Authenticate to Google Cloud
       uses: google-github-actions/auth@main
       with:
         credentials_json: ${{ secrets.GCP_SA_KEY }}
-      
-    - name: Deploy to Cloud Run
+
+    # Deploy to Cloud Run
+    - name: Deploy to Google Cloud Run
       run: |
-        # Authenticate docker to gcloud
-        gcloud auth configure-docker
-
-        # Build and push the image to Google Container Registry
-        docker pull hashicorp/http-echo:latest
-        docker tag hashicorp/http-echo:latest gcr.io/red-delight-393913/hello-world
-        docker push gcr.io/red-delight-393913/hello-world
-
-        # Deploy the image to Cloud Run
-        gcloud run deploy hello-world-service --image gcr.io/red-delight-393913/hello-world --platform managed --region europe-west1 --allow-unauthenticated
+        gcloud auth use-application-default-credentials
+        gcloud run deploy hello-world-service --image=docker.io/hashicorp/http-echo:latest --region=europe-west1 --platform=managed --allow-unauthenticated
