@@ -22,5 +22,4 @@ jobs:
     # Deploy to Cloud Run
     - name: Deploy to Google Cloud Run
       run: |
-        gcloud auth use-application-default-credentials
         gcloud run deploy hello-world-service --image=docker.io/hashicorp/http-echo:latest --region=europe-west1 --platform=managed --allow-unauthenticated
