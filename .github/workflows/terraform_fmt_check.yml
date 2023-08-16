@@ -1,0 +1,30 @@
+name: Terraform FMT Check
+
+on:
+  push:
+    paths:
+    - '**.tf'
+  pull_request:
+    paths:
+    - '**.tf'
+
+jobs:
+  terraform-fmt:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository code
+      uses: actions/checkout@v2
+
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v1
+
+    - name: Terraform FMT
+      run: |
+        terraform fmt -check -recursive
+        if [[ $(git status -s) ]]; then
+          echo "Error: terraform fmt found changes."
+          git diff
+          exit 1
+        else
+          echo "All Terraform configurations are properly formatted."
+        fi
