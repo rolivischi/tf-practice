@@ -10,6 +10,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Check SA Key
+      run: |
+        echo $GCP_SA_KEY | jq .
+      env:
+        GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+              
     - name: Checkout code
       uses: actions/checkout@v2
 
