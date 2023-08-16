@@ -27,8 +27,8 @@ jobs:
 
         # Build and push the image to Google Container Registry
         docker pull hello-world:latest
-        docker tag hello-world:latest gcr.io/your-gcp-project-id/hello-world
-        docker push gcr.io/your-gcp-project-id/hello-world
+        docker tag hello-world:latest gcr.io/red-delight-393913/hello-world
+        docker push gcr.io/red-delight-393913/hello-world
 
         # Deploy the image to Cloud Run
-        gcloud run deploy hello-world-service --image gcr.io/your-gcp-project-id/hello-world --platform managed --region us-central1 --allow-unauthenticated
+        gcloud run deploy hello-world-service --image gcr.io/red-delight-393913/hello-world --platform managed --region europe-west1 --allow-unauthenticated
