@@ -22,4 +22,4 @@ jobs:
     # Deploy to Cloud Run
     - name: Deploy to Google Cloud Run
       run: |
-        gcloud run deploy hello-world-service --image=docker.io/hashicorp/http-echo:latest --region=europe-west1 --platform=managed --allow-unauthenticated
+        gcloud run deploy hello-world-service --image=docker.io/mendhak/http-https-echo:latest --region=europe-west1 --platform=managed --allow-unauthenticated
