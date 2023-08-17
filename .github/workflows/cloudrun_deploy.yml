@@ -30,10 +30,8 @@ jobs:
         # project_id: "red-delight-393913"
         token_lifetime: "3600s"
     - name: Set up Cloud SDK
-      uses: google-github-actions/setup-gcloud@v0.3.0
-    - name: set credential_file
-      run: gcloud auth login --cred-file=${{steps.auth.outputs.credentials_file_path}}
-      # Deploy to Cloud Run
+      uses: google-github-actions/setup-gcloud@v1
     - name: Deploy to Google Cloud Run
       run: |
+        gcloud auth login --cred-file=${{steps.auth.outputs.credentials_file_path}}
         gcloud run deploy hello-world-service --image=docker.io/mendhak/http-https-echo:latest --region=europe-west1 --platform=managed --allow-unauthenticated
