@@ -24,7 +24,7 @@ jobs:
     # Authenticate with Google Cloud using Workload Identity Federation
     - id: auth
       name: Authenticate to Google Cloud with WIF
-      uses: google-github-actions/auth@main
+      uses: google-github-actions/auth@v1
       with:
         workload_identity_provider: "projects/red-delight-393913/locations/global/workloadIdentityPools/github/providers/github-provider"
         service_account: "github-cloud-run@red-delight-393913.iam.gserviceaccount.com"
@@ -37,5 +37,4 @@ jobs:
     # Deploy to Google Cloud Run
     - name: Deploy to Google Cloud Run
       run: |
-        gcloud auth login --cred-file=${{steps.auth.outputs.credentials_file_path}}
         gcloud run deploy hello-world-service --image=docker.io/mendhak/http-https-echo:latest --region=europe-west1 --platform=managed --allow-unauthenticated
