@@ -25,9 +25,9 @@ jobs:
         service_account: "github-cloud-run@red-delight-393913.iam.gserviceaccount.com"
         create_credentials_file: 'true'
         activate_credentials: 'true'
-        private_key_id: ${{ secrets.GCP_PRIVATE_KEY_ID }}
-        private_key: ${{ secrets.GCP_PRIVATE_KEY }}
-        project_id: "red-delight-393913"
+        # private_key_id: ${{ secrets.GCP_PRIVATE_KEY_ID }}
+        # private_key: ${{ secrets.GCP_PRIVATE_KEY }}
+        # project_id: "red-delight-393913"
         token_lifetime: "3600s"
     - name: Set up Cloud SDK
       uses: google-github-actions/setup-gcloud@v0.3.0
