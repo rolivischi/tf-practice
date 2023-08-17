@@ -34,7 +34,7 @@ jobs:
     - id: 'gcloud'
       name: 'gcloud'
       run: |-
-        gcloud auth activate-service-account --key-file="${{ steps.auth.outputs.credentials_file_path }}"
+        gcloud auth activate-service-account --cred-file="${{ steps.auth.outputs.credentials_file_path }}"
         gcloud config set project red-delight-393913
       # Deploy to Cloud Run
     - name: Deploy to Google Cloud Run
