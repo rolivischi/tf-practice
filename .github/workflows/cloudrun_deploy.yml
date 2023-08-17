@@ -30,11 +30,6 @@ jobs:
         project_id: "red-delight-393913"
         # Use the following token_lifetime if needed; by default, it's one hour
         token_lifetime: "3600s"
-    - id: 'gcloud'
-      name: 'gcloud'
-      run: |-
-        gcloud auth login --brief --cred-file="${{ steps.auth.outputs.credentials_file_path }}"
-        gcloud services list
     # Deploy to Cloud Run
     - name: Deploy to Google Cloud Run
       run: |
