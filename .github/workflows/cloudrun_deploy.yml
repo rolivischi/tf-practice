@@ -17,8 +17,7 @@ jobs:
     - name: Authenticate to Google Cloud with WIF
       uses: google-github-actions/auth@main
       with:
-        workload_identity_pool_id: "github"
-        workload_identity_provider_id: "github-provider"
+        workload_identity_provider: "projects/red-delight-393913/locations/global/workloadIdentityPools/github/providers/github-provider"
         service_account_id: "github-cloud-run@red-delight-393913.iam.gserviceaccount.com"
         # The location of your service account's key. You can store it as a GitHub secret.
         private_key_id: ${{ secrets.GCP_PRIVATE_KEY_ID }}
