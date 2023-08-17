@@ -19,7 +19,7 @@ jobs:
     # Authenticate with Google Cloud using Workload Identity Federation
     - id: auth
       name: Authenticate to Google Cloud with WIF
-      uses: google-github-actions/auth@main
+      uses: google-github-actions/auth@v1
       with:
         workload_identity_provider: "projects/red-delight-393913/locations/global/workloadIdentityPools/github/providers/github-provider"
         service_account: "github-cloud-run@red-delight-393913.iam.gserviceaccount.com"
