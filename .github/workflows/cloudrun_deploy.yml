@@ -13,11 +13,6 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-
-    # Revoke all previous gcloud authentications
-    - name: Revoke previous gcloud authentications
-      run: gcloud auth revoke --all || true
-
     # Authenticate with Google Cloud using Workload Identity Federation
     - id: auth
       name: Authenticate to Google Cloud with WIF
