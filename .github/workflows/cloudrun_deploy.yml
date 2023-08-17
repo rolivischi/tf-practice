@@ -26,6 +26,7 @@ jobs:
         workload_identity_provider: "projects/red-delight-393913/locations/global/workloadIdentityPools/github/providers/github-provider"
         service_account: "github-cloud-run@red-delight-393913.iam.gserviceaccount.com"
         create_credentials_file: 'true'
+        token_format: 'access_token'
     - id: 'deploy'
       uses: 'google-github-actions/deploy-cloudrun@v1'
       with:
