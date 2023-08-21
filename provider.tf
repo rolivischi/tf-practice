@@ -19,7 +19,7 @@ variable "project_id" {
 }
 
 provider "google" {
-  credentials = var.gcp_storage_account
+  //credentials = var.gcp_storage_account
   project     = var.project_id
   region      = "europe-west1"
 }

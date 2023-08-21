@@ -28,5 +28,6 @@ jobs:
       with:
         service: 'hello-world-service'
         image: 'docker.io/mendhak/http-https-echo:latest'
+        region: 'europe-west1'
     - name: 'Use output'
       run: 'curl "${{ steps.deploy.outputs.url }}"'
