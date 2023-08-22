@@ -3,11 +3,6 @@ variable "tfe_token" {
   sensitive = true
 }
 
-variable "github_token" {
-  type      = string
-  sensitive = true
-}
-
 variable "project_id" {
   type      = string
   sensitive = true
@@ -19,8 +14,7 @@ provider "google" {
 }
 
 provider "github" {
-  token = var.github_token
-  owner = "senacor3"
+  owner = "rolivischi"
 }
 
 provider "tfe" {
